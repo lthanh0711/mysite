@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-15 12:51+0700\n"
+"POT-Creation-Date: 2022-08-16 13:26+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
 #: .\catalog\models.py:10
 msgid "Enter a book genre (e.g. Science Fiction)"
 msgstr "Nhập thể loại sách (vd: khoa học viễn tưởng)"
@@ -35,14 +36,62 @@ msgstr ""
 msgid "Select a genre for this book"
 msgstr "Xác định thể loại cho cuốn sách này"
 
-#: .\catalog\models.py:38
+#: .\catalog\models.py:45
 msgid "Unique ID for this particular book across whole library"
 msgstr "ID cho cuốn sách"
 
-#: .\catalog\models.py:55
+#: .\catalog\models.py:62
 msgid "Book availability"
 msgstr "Tình trạng sách"
 
-#: .\catalog\models.py:84
+#: .\catalog\models.py:91
 msgid "Enter the book's natural language (e.g. English, French, Japanese etc.)"
 msgstr "Ngôn ngữ của sách"
+
+#: .\catalog\templates\base_generic.html:5
+msgid "Local Library"
+msgstr "Thư viện"
+
+#: .\catalog\templates\base_generic.html:19
+msgid "Home"
+msgstr "Trang chủ"
+
+#: .\catalog\templates\base_generic.html:20
+msgid "All books"
+msgstr "Danh mục sách"
+
+#: .\catalog\templates\base_generic.html:21
+msgid "All authors"
+msgstr "Danh mục tác giả"
+
+#: .\catalog\templates\index.html:5
+msgid "Local Library Home"
+msgstr "Trang chủ"
+
+#: .\catalog\templates\index.html:6
+msgid "Welcome to LocalLibrary, a website developed by"
+msgstr "Chào mừng đến Local Library, trang web được phát triển bởi"
+
+#: .\catalog\templates\index.html:7
+msgid "Dynamic content"
+msgstr ""
+
+#: .\catalog\templates\index.html:8
+msgid "The library has the following record counts:"
+msgstr "Các bản record trong thư viện:"
+
+#: .\catalog\templates\index.html:10
+msgid "Books:"
+msgstr "Sách:"
+
+#: .\catalog\templates\index.html:11
+msgid "Copies:"
+msgstr "Số bản copy:"
+
+#: .\catalog\templates\index.html:12
+msgid "Copies available:"
+msgstr "Số bản copy khả dụng:"
+
+#: .\catalog\templates\index.html:13
+msgid "Authors:"
+msgstr "Tác giả:"
