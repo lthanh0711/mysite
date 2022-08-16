@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views import generic
+from django.shortcuts import get_object_or_404
 from .models import Book, Author, BookInstance, Genre
 
 def index(request):
@@ -23,3 +25,33 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
+class BookListView(generic.ListView):
+    model = Book
+    paginate_by = 10
+    
+
+class BookDetailView(generic.DetailView):
+    model = Book
+    
+    def get_context_data(self, **kwargs):
+        context = super(BookDetailView, self).get_context_data(**kwargs)
+        
+        context['genre_all'] = self.object.genre.all
+        context['instance_all'] = self.object.bookinstance_set.all
+        return context
+
+class AuthorListView(generic.ListView):
+    model = Author
+    paginate_by = 10
+
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
+    
+    def get_context_data(self, **kwargs):
+        context = super(AuthorDetailView, self).get_context_data(**kwargs)
+        
+        context['bookset_all'] = self.object.book_set.all
+        return context
+    
