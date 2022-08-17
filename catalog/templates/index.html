@@ -13,4 +13,5 @@
     <li><strong>{% trans "Authors:" %}</strong> {{ num_authors }}</li>
   </ul>
   <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+  <p>{% trans "You have visited this page" %} {{ num_visits }} {% trans "time{{ num_visits|pluralize }}." %}</p>
 {% endblock %}
