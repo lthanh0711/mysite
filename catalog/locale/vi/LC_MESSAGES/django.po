@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-16 13:26+0700\n"
+"POT-Creation-Date: 2022-08-16 15:34+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,21 +48,78 @@ msgstr "Tình trạng sách"
 msgid "Enter the book's natural language (e.g. English, French, Japanese etc.)"
 msgstr "Ngôn ngữ của sách"
 
-#: .\catalog\templates\base_generic.html:5
+#: .\catalog\templates\base_generic.html:6
 msgid "Local Library"
 msgstr "Thư viện"
 
-#: .\catalog\templates\base_generic.html:19
+#: .\catalog\templates\base_generic.html:20
 msgid "Home"
 msgstr "Trang chủ"
 
-#: .\catalog\templates\base_generic.html:20
+#: .\catalog\templates\base_generic.html:21
 msgid "All books"
 msgstr "Danh mục sách"
 
-#: .\catalog\templates\base_generic.html:21
+#: .\catalog\templates\base_generic.html:22
 msgid "All authors"
 msgstr "Danh mục tác giả"
+
+#: .\catalog\templates\catalog\author_detail.html:6
+#: .\catalog\templates\catalog\book_detail.html:7
+#, fuzzy
+#| msgid "Authors:"
+msgid "Author:"
+msgstr "Tác giả:"
+
+#: .\catalog\templates\catalog\author_detail.html:10
+#, fuzzy
+#| msgid "Books:"
+msgid "Books"
+msgstr "Sách:"
+
+#: .\catalog\templates\catalog\author_list.html:6
+#, fuzzy
+#| msgid "Authors:"
+msgid "Author List"
+msgstr "Tác giả:"
+
+#: .\catalog\templates\catalog\author_list.html:21
+msgid "There are no authors available."
+msgstr "Không có tác giả nào."
+
+#: .\catalog\templates\catalog\book_detail.html:5
+msgid "Title:"
+msgstr "Tiêu đề:"
+
+#: .\catalog\templates\catalog\book_detail.html:8
+msgid "Summary:"
+msgstr "Tóm tắt:"
+
+#: .\catalog\templates\catalog\book_detail.html:10
+msgid "Language:"
+msgstr "Ngôn ngữ:"
+
+#: .\catalog\templates\catalog\book_detail.html:11
+msgid "Genre:"
+msgstr "Thể loại:"
+
+#: .\catalog\templates\catalog\book_detail.html:22
+msgid "Due to be returned:"
+msgstr "Ngày trả sách:"
+
+#: .\catalog\templates\catalog\book_detail.html:24
+msgid "Imprint:"
+msgstr "Nhà xuất bản:"
+
+#: .\catalog\templates\catalog\book_list.html:5
+#, fuzzy
+#| msgid "Books:"
+msgid "Book List"
+msgstr "Sách:"
+
+#: .\catalog\templates\catalog\book_list.html:15
+msgid "There are no books in the library."
+msgstr "Không có sách nào."
 
 #: .\catalog\templates\index.html:5
 msgid "Local Library Home"
