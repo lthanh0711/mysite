@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-18 14:40+0700\n"
+"POT-Creation-Date: 2022-08-19 09:14+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\catalog\forms.py:12
+msgid "Invalid date - renewal in past"
+msgstr "Sai định dạng ngày - làm mới trong quá khứ"
+
+#: .\catalog\forms.py:15
+msgid "Invalid date - renewal more than 4 weeks ahead"
+msgstr "Sai định dạng ngày - làm mới hơn 4 tuần"
+
+#: .\catalog\forms.py:22
+msgid "Renewal date"
+msgstr "Ngày làm mới"
+
+#: .\catalog\forms.py:23
+msgid "Enter a date between now and 4 weeks (default 3)."
+msgstr "Nhập ngày nằm giữa hiện tại và 4 tuần sau (mặc định 3 tuần sau)"
 
 #: .\catalog\models.py:12
 msgid "Enter a book genre (e.g. Science Fiction)"
@@ -106,6 +122,16 @@ msgstr "trên"
 msgid "next"
 msgstr "Sau"
 
+#: .\catalog\templates\catalog\author_confirm_delete.html:6
+#, fuzzy
+#| msgid "Authors:"
+msgid "Delete Author"
+msgstr "Tác giả:"
+
+#: .\catalog\templates\catalog\author_confirm_delete.html:8
+msgid "Are you sure you want to delete the author: "
+msgstr ""
+
 #: .\catalog\templates\catalog\author_detail.html:8
 #: .\catalog\templates\catalog\book_detail.html:9
 #, fuzzy
@@ -119,6 +145,11 @@ msgstr "Tác giả:"
 msgid "Books"
 msgstr "Sách:"
 
+#: .\catalog\templates\catalog\author_form.html:10
+#: .\catalog\templates\catalog\book_form.html:11
+msgid "Submit"
+msgstr "Gửi"
+
 #: .\catalog\templates\catalog\author_list.html:6
 #, fuzzy
 #| msgid "Authors:"
@@ -128,6 +159,14 @@ msgstr "Tác giả:"
 #: .\catalog\templates\catalog\author_list.html:21
 msgid "There are no authors available."
 msgstr "Không có tác giả nào."
+
+#: .\catalog\templates\catalog\book_confirm_delete.html:6
+msgid "Delete Book"
+msgstr "Xóa sách"
+
+#: .\catalog\templates\catalog\book_confirm_delete.html:8
+msgid "Are you sure you want to delete the book:"
+msgstr "Bạn có chắc chắn muốn xóa sách:"
 
 #: .\catalog\templates\catalog\book_detail.html:6
 msgid "Title:"
@@ -163,11 +202,29 @@ msgstr "Sách:"
 msgid "There are no books in the library."
 msgstr "Không có sách nào."
 
+#: .\catalog\templates\catalog\book_renew_librarian.html:5
+msgid "Renew:"
+msgstr "Làm mới:"
+
+#: .\catalog\templates\catalog\book_renew_librarian.html:6
+#, fuzzy
+#| msgid "My Borrowed"
+msgid "Borrower:"
+msgstr "Sách đã mượn"
+
+#: .\catalog\templates\catalog\book_renew_librarian.html:8
+msgid "Due date:"
+msgstr "Ngày trả:"
+
 #: .\catalog\templates\catalog\bookinstance_list_borrowed_all.html:5
 msgid "All Borrowed Books"
 msgstr "Sách đã được mượn"
 
-#: .\catalog\templates\catalog\bookinstance_list_borrowed_all.html:21
+#: .\catalog\templates\catalog\bookinstance_list_borrowed_all.html:14
+msgid "Renew"
+msgstr "Làm mới:"
+
+#: .\catalog\templates\catalog\bookinstance_list_borrowed_all.html:20
 #: .\catalog\templates\catalog\bookinstance_list_borrowed_user.html:18
 #, fuzzy
 #| msgid "There are no books in the library."
