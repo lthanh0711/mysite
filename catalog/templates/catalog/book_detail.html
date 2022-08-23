@@ -11,6 +11,13 @@
   <p><strong>ISBN:</strong> {{ book.isbn }}</p>
   <p><strong>{% trans "Language:" %}</strong> {{ book.language }}</p>
   <p><strong>{% trans "Genre:" %}</strong> {{ genre_all|join:", " }}</p>
+  
+  {% if user.is_staff %}
+    {% if perms.catalog.can_mark_returned %}
+      <a href="{% url 'book-update' book.pk %}">{% trans "Update" %}</a>
+      <a href="{% url 'book-delete' book.pk %}">{% trans "Delete" %}</a>
+    {% endif %}
+  {% endif %}
 
   <div class="books">
     <h4>Copies</h4>
