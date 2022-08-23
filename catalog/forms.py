@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from catalog.models import BookInstance
+from catalog.models import BookInstance, Book, Author
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
 import datetime
@@ -21,3 +21,13 @@ class RenewBookModelForm(ModelForm):
         fields = ['due_back']
         labels = {'due_back': _('Renewal date')}
         help_texts = {'due_back': _('Enter a date between now and 4 weeks (default 3).')}
+
+class SearchBookModelForm(ModelForm):
+    class Meta:
+        model = Book
+        fields = ['title', 'author', 'genre', 'language']
+
+class SearchAuthorModelForm(ModelForm):
+    class Meta:
+        model = Author
+        fields = ['first_name', 'last_name']
