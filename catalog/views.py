@@ -42,7 +42,6 @@ class BookDetailView(generic.DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(BookDetailView, self).get_context_data(**kwargs)
-        print(context)
         context['genre_all'] = self.object.genre.all
         context['instance_all'] = self.object.bookinstance_set.all
         return context

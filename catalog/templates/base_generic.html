@@ -23,6 +23,7 @@
           <li><a href="{% url 'search-book' %}">{% trans "Search book" %}</a></li>
           <li><a href="{% url 'search-author' %}">{% trans "Search author" %}</a></li>
         </ul>
+        <hr>
         <ul class="sidebar-nav">
           {% if user.is_authenticated %}
             <li>{% trans "User:" %} {{ user.get_username }}</li>
@@ -38,6 +39,8 @@
           <li>{% trans "Staff" %}</li>
           {% if perms.catalog.can_mark_returned %}
             <li><a href="{% url 'all-borrowed' %}">{% trans "All borrowed" %}</a></li>
+            <li><a href="{% url 'book-create' %}">{% trans "Add book" %}</a></li>
+            <li><a href="{% url 'author-create' %}">{% trans "Add author" %}</a></li>
           {% endif %}
         </ul>
         {% endif %}

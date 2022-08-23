@@ -23,36 +23,11 @@ class RenewBookModelForm(ModelForm):
         help_texts = {'due_back': _('Enter a date between now and 4 weeks (default 3).')}
 
 class SearchBookModelForm(ModelForm):
-    def clean_title(self):
-        data = self.cleaned_data['title']
-        return data
-    
-    def clean_author(self):
-        data = self.cleaned_data['author']
-        return data
-    
-    def clean_genre(self):
-        data = self.cleaned_data['genre']
-        return data
-    
-    def clean_language(self):
-        data = self.cleaned_data['language']
-        return data
-    
     class Meta:
         model = Book
         fields = ['title', 'author', 'genre', 'language']
 
 class SearchAuthorModelForm(ModelForm):
-    def clean_first_name(self):
-        data = self.cleaned_data['first_name']
-        return data
-    
-    def clean_last_name(self):
-        data = self.cleaned_data['last_name']
-        return data
-    
     class Meta:
         model = Author
         fields = ['first_name', 'last_name']
-        
