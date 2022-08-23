@@ -20,6 +20,8 @@
           <li><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
           <li><a href="{% url 'books' %}">{% trans "All books" %}</a></li>
           <li><a href="{% url 'authors' %}">{% trans "All authors" %}</a></li>
+          <li><a href="{% url 'search-book' %}">{% trans "Search book" %}</a></li>
+          <li><a href="{% url 'search-author' %}">{% trans "Search author" %}</a></li>
         </ul>
         <ul class="sidebar-nav">
           {% if user.is_authenticated %}

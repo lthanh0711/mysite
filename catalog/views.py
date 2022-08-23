@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Book, Author, BookInstance, Genre
-from catalog.forms import RenewBookModelForm
+from catalog.forms import RenewBookModelForm, SearchBookModelForm, SearchAuthorModelForm
 import datetime
 
 def index(request):
@@ -36,14 +36,13 @@ def index(request):
 class BookListView(generic.ListView):
     model = Book
     paginate_by = 10
-    
 
 class BookDetailView(generic.DetailView):
     model = Book
     
     def get_context_data(self, **kwargs):
         context = super(BookDetailView, self).get_context_data(**kwargs)
-        
+        print(context)
         context['genre_all'] = self.object.genre.all
         context['instance_all'] = self.object.bookinstance_set.all
         return context
@@ -105,6 +104,52 @@ def renew_book_librarian(request, pk):
     }
 
     return render(request, 'catalog/book_renew_librarian.html', context)
+
+def search_book(request):
+    
+    context = {}
+    
+    if request.method == 'POST':
+        form = SearchBookModelForm(request.POST)
+        if form.is_valid():
+            context['book_list'] = Book.objects.filter(title__icontains=form.cleaned_data['title'],
+                                                       author__exact=form.cleaned_data['author'],
+                                                       genre__in=form.cleaned_data['genre'],
+                                                       language__exact=form.cleaned_data['language']
+                                                       )
+            return render(request, 'catalog/book_list.html', context)
+
+    else:
+        form = SearchBookModelForm()
+
+    context = {
+        'search_item': 'Book',
+        'form': form,
+    }
+
+    return render(request, 'catalog/search.html', context)
+
+def search_author(request):
+    
+    context = {}
+    
+    if request.method == 'POST':
+        form = SearchAuthorModelForm(request.POST)
+        if form.is_valid():
+            context['author_list'] = Author.objects.filter(first_name__icontains=form.cleaned_data['first_name'],
+                                                           last_name__icontains=form.cleaned_data['last_name'],
+                                                           )
+            return render(request, 'catalog/author_list.html', context)
+
+    else:
+        form = SearchAuthorModelForm()
+
+    context = {
+        'search_item': 'Author',
+        'form': form,
+    }
+
+    return render(request, 'catalog/search.html', context)
 
 class AuthorCreate(CreateView):
     model = Author
