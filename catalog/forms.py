@@ -31,3 +31,17 @@ class SearchAuthorModelForm(ModelForm):
     class Meta:
         model = Author
         fields = ['first_name', 'last_name']
+
+class RentBookModelForm(ModelForm):
+    def clean_due_back(self):
+        data = self.cleaned_data['due_back']
+
+        if data < datetime.date.today():
+            raise ValidationError(_('Invalid date - rent in past'))
+
+        return data
+   
+    class Meta:
+        model = BookInstance
+        fields = ['due_back']
+        labels = {'due_back': _('Return date')}
