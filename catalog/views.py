@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Book, Author, BookInstance, Genre
-from catalog.forms import RenewBookModelForm, SearchBookModelForm, SearchAuthorModelForm
+from catalog.forms import RenewBookModelForm, SearchBookModelForm, SearchAuthorModelForm, RentBookModelForm
 import datetime
 
 def index(request):
@@ -150,6 +150,42 @@ def search_author(request):
 
     return render(request, 'catalog/search.html', context)
 
+@login_required
+def rentBook(request, pk):
+    book_instance = get_object_or_404(BookInstance, pk=pk)
+
+    if request.method == 'POST':
+        form = RentBookModelForm(request.POST)
+
+        if form.is_valid():
+            book_instance.due_back = form.cleaned_data['due_back']
+            book_instance.borrower = request.user
+            book_instance.status = 'o'
+            book_instance.save()
+
+            return HttpResponseRedirect(reverse('my-borrowed'))
+
+    else:
+        proposed_rent_date = datetime.date.today() + datetime.timedelta(weeks=3)
+        form = RentBookModelForm(initial={'due_back': proposed_rent_date})
+
+    context = {
+        'form': form,
+        'book_instance': book_instance,
+    }
+
+    return render(request, 'catalog/book_rent.html', context)
+
+@login_required
+def returnBook(request, pk):
+    book_instance = get_object_or_404(BookInstance, pk=pk)
+    book_instance.due_back = None
+    book_instance.borrower = None
+    book_instance.status = 'a'
+    book_instance.save()
+
+    return HttpResponseRedirect(reverse('my-borrowed'))
+    
 class AuthorCreate(CreateView):
     model = Author
     fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
