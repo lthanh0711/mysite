@@ -2,12 +2,26 @@
 {% load i18n %}
 
 {% block content %}
-  <h1>{% trans "Search For " %} {% trans search_item %}</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-    <table>
-    {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit">
+{% load static %}
+<link href="{% static 'css/form.css' %}" rel="stylesheet">
+<div class="main-block">
+  <div class="title">
+    
+  </div>
+  <form action="/">
+    <h1>{% trans "Search For " %} {% trans search_item %}</h1>
+    <div class="info">
+      {% for field in form.visible_fields %}
+        <tr>
+          <th>{{ field.label_tag }}</th>
+          <td>
+            {{ field.errors }}
+            {{ field }}
+          </td>
+        </tr>
+      {% endfor %}
+    </div>
+    <button class="bt" type="submit" href="/">Submit</button>
   </form>
+</div>
 {% endblock %}
