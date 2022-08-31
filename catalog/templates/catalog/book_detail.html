@@ -1,7 +1,7 @@
 {% extends "base_generic.html" %}
 {% load i18n %}
 {% load static %}
-
+{% block title %}<title>{% trans "Book Detail" %}</title>{% endblock %}
 {% block content %}
   <h1>{% trans "Title:" %} {{ book.title }}</h1>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -14,8 +14,8 @@
   
   {% if user.is_staff %}
     {% if perms.catalog.can_mark_returned %}
-      <a href="{% url 'book-update' book.pk %}">{% trans "Update" %}</a>
-      <a href="{% url 'book-delete' book.pk %}">{% trans "Delete" %}</a>
+      <a class="button-25" href="{% url 'book-update' book.pk %}">{% trans "Update" %}</a>
+      <a class="button-24" href="{% url 'book-delete' book.pk %}">{% trans "Delete" %}</a>
     {% endif %}
   {% endif %}
 
@@ -28,15 +28,30 @@
         {{ copy.get_status_display }}
       </p>
       {% if copy.status != 'a' %}
-        <p><strong>{% trans "Due to be returned:" %}</strong> {{ copy.due_back }}</p>
+        <p>
+          <strong class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
+            {% trans "Due to be returned:" %}
+          </strong> 
+          {{ copy.due_back }}
+        </p>
       {% endif %}
-      <p><strong>{% trans "Imprint:" %}</strong> {{ copy.imprint }}</p>
-      <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
+      <p>
+        <strong class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
+          {% trans "Imprint:" %}
+        </strong> 
+        {{ copy.imprint }}
+      </p>
+      <p>
+        <strong class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
+          Id:
+        </strong> 
+        {{ copy.id }}
+      </p>
       {% if copy.status == 'a' %}
-        <a href="{% url 'book-rent' copy.id %}">{% trans "Rent" %}</a>
+        <a class="button-26" href="{% url 'book-rent' copy.id %}">{% trans "Rent" %}</a>
       {% endif %}
       {% if copy.borrower == user %}
-        <a href="{% url 'book-return' copy.id %}">{% trans "Return" %}</a>
+        <a class="button-27" href="{% url 'book-return' copy.id %}">{% trans "Return" %}</a>
       {% endif %}
     {% endfor %}
   </div>

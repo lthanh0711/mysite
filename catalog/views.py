@@ -109,6 +109,7 @@ def search_book(request):
     context = {}
     
     if request.method == 'POST':
+        print('a')
         form = SearchBookModelForm(request.POST)
         if form.is_valid():
             context['book_list'] = Book.objects.filter(title__icontains=form.cleaned_data['title'],
@@ -190,6 +191,11 @@ class AuthorCreate(CreateView):
     model = Author
     fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
     permission_required = 'catalog.can_mark_returned'
+    
+    def get_context_data(self, **kwargs):
+        context = super(AuthorCreate, self).get_context_data(**kwargs)
+        context['title'] = 'Add Author'
+        return context
 
 class AuthorUpdate(UpdateView):
     model = Author
@@ -197,6 +203,11 @@ class AuthorUpdate(UpdateView):
     date_of_death = datetime.date.today()
     initial = {'date_of_death': date_of_death}
     permission_required = 'catalog.can_mark_returned'
+    
+    def get_context_data(self, **kwargs):
+        context = super(AuthorUpdate, self).get_context_data(**kwargs)
+        context['title'] = 'Update Author info'
+        return context
 
 class AuthorDelete(DeleteView):
     model = Author
@@ -207,11 +218,21 @@ class BookCreate(PermissionRequiredMixin, CreateView):
     model = Book
     fields = ['title', 'author', 'summary', 'isbn', 'genre', 'language']
     permission_required = 'catalog.can_mark_returned'
+    
+    def get_context_data(self, **kwargs):
+        context = super(BookCreate, self).get_context_data(**kwargs)
+        context['title'] = 'Add Book'
+        return context
 
 class BookUpdate(PermissionRequiredMixin, UpdateView):
     model = Book
     fields = ['title', 'author', 'summary', 'isbn', 'genre', 'language']
     permission_required = 'catalog.can_mark_returned'
+    
+    def get_context_data(self, **kwargs):
+        context = super(BookUpdate, self).get_context_data(**kwargs)
+        context['title'] = 'Update Book info'
+        return context
 
 class BookDelete(PermissionRequiredMixin, DeleteView):
     model = Book

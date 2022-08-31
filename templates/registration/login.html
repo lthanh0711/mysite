@@ -2,37 +2,45 @@
 {% load i18n %}
 
 {% block content %}
+{% load static %}
+<link href="{% static 'css/form.css' %}" rel="stylesheet">
 
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   {% if form.errors %}
-    <p>{% trans "Your username and password didn't match. Please try again." %}</p>
+    {% trans "Your username and password didn't match. Please try again." %}
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>{% trans "Your account doesn't have access to this page. To proceed,
-      please login with an account that has access." %}</p>
+      {% trans "Your account doesn't have access to this page. To proceed,
+      please login with an account that has access." %}
     {% else %}
-      <p>{% trans "Please login to see this page." %}</p>
+      {% trans "Please login to see this page." %}
     {% endif %}
   {% endif %}
+</div>
 
+<div class="main-block">
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
+    <h1>{% trans "Login" %}</h1>
+    <div class="info">
+      {% for field in form.visible_fields %}
+        <tr>
+          <th>{{ field.label_tag }}</th>
+          <td>
+            {{ field.errors }}
+            {{ field }}
+          </td>
+        </tr>
+      {% endfor %}
+    </div>
     <input type="submit" value="login">
     <input type="hidden" name="next" value="{{ next }}">
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p><a href="{% url 'password_reset' %}">{% trans "Lost password?" %}</a></p>
   </form>
-
-  {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">{% trans "Lost password?" %}</a></p>
-
+  
+</div>
 {% endblock %}
