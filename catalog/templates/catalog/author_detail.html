@@ -1,7 +1,7 @@
 {% extends "base_generic.html" %}
 {% load i18n %}
 {% load static %}
-
+{% block title %}<title>{% trans "Author Detail" %}</title>{% endblock %}
 {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -9,8 +9,8 @@
 <p>{{author.date_of_birth}} - {% if author.date_of_death %}{{author.date_of_death}}{% endif %}</p>
 {% if user.is_staff %}
   {% if perms.catalog.can_mark_returned %}
-    <a href="{% url 'author-update' author.pk %}">{% trans "Update" %}</a>
-    <a href="{% url 'author-delete' author.pk %}">{% trans "Delete" %}</a>
+    <a class="button-25" href="{% url 'author-update' author.pk %}">{% trans "Update" %}</a>
+    <a class="button-24" href="{% url 'author-delete' author.pk %}">{% trans "Delete" %}</a>
   {% endif %}
 {% endif %}
 <div class="books">

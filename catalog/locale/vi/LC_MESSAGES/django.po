@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 12:36+0700\n"
+"POT-Creation-Date: 2022-08-31 12:14+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,65 +98,65 @@ msgstr "Danh mục sách"
 msgid "All authors"
 msgstr "Danh mục tác giả"
 
-#: .\catalog\templates\base_generic.html:23
+#: .\catalog\templates\base_generic.html:34
+#, fuzzy
+#| msgid "Search book"
+msgid "Search"
+msgstr "Tìm kiếm sách"
+
+#: .\catalog\templates\base_generic.html:36
 msgid "Search book"
 msgstr "Tìm kiếm sách"
 
-#: .\catalog\templates\base_generic.html:24
+#: .\catalog\templates\base_generic.html:37
 msgid "Search author"
 msgstr "Tìm kiếm tác giả"
 
-#: .\catalog\templates\base_generic.html:37
+#: .\catalog\templates\base_generic.html:42
 msgid "Staff"
 msgstr "Nhân viên"
 
-#: .\catalog\templates\base_generic.html:40
-#, fuzzy
-#| msgid "All books"
+#: .\catalog\templates\base_generic.html:45
 msgid "All borrowed"
-msgstr "Danh mục sách"
+msgstr "Toàn bộ sách đã được mượn"
 
-#: .\catalog\templates\base_generic.html:41
-#, fuzzy
-#| msgid "All books"
+#: .\catalog\templates\base_generic.html:46
 msgid "Add book"
-msgstr "Danh mục sách"
+msgstr "Thêm sách"
 
-#: .\catalog\templates\base_generic.html:42
-#, fuzzy
-#| msgid "All authors"
+#: .\catalog\templates\base_generic.html:47
 msgid "Add author"
-msgstr "Danh mục tác giả"
+msgstr "Thêm tác giả"
 
-#: .\catalog\templates\base_generic.html:49
+#: .\catalog\templates\base_generic.html:54
 msgid "User:"
 msgstr "Người dùng:"
 
-#: .\catalog\templates\base_generic.html:51
+#: .\catalog\templates\base_generic.html:56
 msgid "My Borrowed"
 msgstr "Sách đã mượn"
 
-#: .\catalog\templates\base_generic.html:52
+#: .\catalog\templates\base_generic.html:57
 msgid "Logout"
 msgstr "Đăng xuất"
 
-#: .\catalog\templates\base_generic.html:57
+#: .\catalog\templates\base_generic.html:62
 msgid "Login"
 msgstr "Đăng nhập"
 
-#: .\catalog\templates\base_generic.html:71
+#: .\catalog\templates\base_generic.html:76
 msgid "previous"
 msgstr "Trước"
 
-#: .\catalog\templates\base_generic.html:74
+#: .\catalog\templates\base_generic.html:79
 msgid "Page"
 msgstr "Trang"
 
-#: .\catalog\templates\base_generic.html:74
+#: .\catalog\templates\base_generic.html:79
 msgid "of"
 msgstr "trên"
 
-#: .\catalog\templates\base_generic.html:77
+#: .\catalog\templates\base_generic.html:82
 msgid "next"
 msgstr "Sau"
 
@@ -169,6 +169,10 @@ msgstr "Tác giả:"
 #: .\catalog\templates\catalog\author_confirm_delete.html:8
 msgid "Are you sure you want to delete the author: "
 msgstr "Bạn có chắc muốn xóa tác giả này:"
+
+#: .\catalog\templates\catalog\author_detail.html:4
+msgid "Author Detail"
+msgstr "Thông tin tác giả"
 
 #: .\catalog\templates\catalog\author_detail.html:8
 #: .\catalog\templates\catalog\book_detail.html:9
@@ -195,16 +199,10 @@ msgstr "Xóa sách"
 msgid "Books"
 msgstr "Sách:"
 
-#: .\catalog\templates\catalog\author_form.html:10
-#: .\catalog\templates\catalog\book_form.html:11
-msgid "Submit"
-msgstr "Gửi"
-
+#: .\catalog\templates\catalog\author_list.html:3
 #: .\catalog\templates\catalog\author_list.html:5
-#, fuzzy
-#| msgid "Authors:"
 msgid "Author List"
-msgstr "Tác giả:"
+msgstr "Danh mục tác giả"
 
 #: .\catalog\templates\catalog\author_list.html:18
 msgid "There are no authors available."
@@ -217,6 +215,10 @@ msgstr "Xóa sách"
 #: .\catalog\templates\catalog\book_confirm_delete.html:8
 msgid "Are you sure you want to delete the book:"
 msgstr "Bạn có chắc chắn muốn xóa sách:"
+
+#: .\catalog\templates\catalog\book_detail.html:4
+msgid "Book Detail"
+msgstr "Thông tin sách"
 
 #: .\catalog\templates\catalog\book_detail.html:6
 msgid "Title:"
@@ -234,28 +236,27 @@ msgstr "Ngôn ngữ:"
 msgid "Genre:"
 msgstr "Thể loại:"
 
-#: .\catalog\templates\catalog\book_detail.html:31
+#: .\catalog\templates\catalog\book_detail.html:33
 msgid "Due to be returned:"
 msgstr "Ngày trả sách:"
 
-#: .\catalog\templates\catalog\book_detail.html:33
+#: .\catalog\templates\catalog\book_detail.html:40
 #: .\catalog\templates\catalog\book_rent.html:6
 msgid "Imprint:"
 msgstr "Nhà xuất bản:"
 
-#: .\catalog\templates\catalog\book_detail.html:36
+#: .\catalog\templates\catalog\book_detail.html:51
 msgid "Rent"
 msgstr "Mượn sách"
 
-#: .\catalog\templates\catalog\book_detail.html:39
+#: .\catalog\templates\catalog\book_detail.html:54
 msgid "Return"
 msgstr "Trả sách"
 
+#: .\catalog\templates\catalog\book_list.html:3
 #: .\catalog\templates\catalog\book_list.html:5
-#, fuzzy
-#| msgid "Books:"
 msgid "Book List"
-msgstr "Sách:"
+msgstr "Danh mục sách"
 
 #: .\catalog\templates\catalog\book_list.html:15
 msgid "There are no books in the library."
@@ -275,19 +276,22 @@ msgstr "Sách đã mượn"
 msgid "Due date:"
 msgstr "Ngày trả:"
 
-#: .\catalog\templates\catalog\book_rent.html:5
-#, fuzzy
-#| msgid "Delete Book"
-msgid "Rent Book:"
-msgstr "Xóa sách"
+#: .\catalog\templates\catalog\book_rent.html:3
+msgid "Rent Book"
+msgstr "Mượn sách"
 
+#: .\catalog\templates\catalog\book_rent.html:5
+msgid "Rent Book:"
+msgstr "Mượn sách:"
+
+#: .\catalog\templates\catalog\bookinstance_list_borrowed_all.html:3
 #: .\catalog\templates\catalog\bookinstance_list_borrowed_all.html:5
 msgid "All Borrowed Books"
 msgstr "Sách đã được mượn"
 
 #: .\catalog\templates\catalog\bookinstance_list_borrowed_all.html:14
 msgid "Renew"
-msgstr "Làm mới:"
+msgstr "Làm mới"
 
 #: .\catalog\templates\catalog\bookinstance_list_borrowed_all.html:20
 #: .\catalog\templates\catalog\bookinstance_list_borrowed_user.html:18
@@ -296,11 +300,13 @@ msgstr "Làm mới:"
 msgid "There are no books borrowed."
 msgstr "Không có sách nào."
 
+#: .\catalog\templates\catalog\bookinstance_list_borrowed_user.html:3
 #: .\catalog\templates\catalog\bookinstance_list_borrowed_user.html:5
 msgid "Borrowed books"
 msgstr "Sách đã mượn"
 
-#: .\catalog\templates\catalog\search.html:5
+#: .\catalog\templates\catalog\search.html:4
+#: .\catalog\templates\catalog\search.html:12
 msgid "Search For "
 msgstr "Tìm kiếm "
 
@@ -344,8 +350,23 @@ msgstr "Bạn đã truy cập trang"
 msgid "time"
 msgstr "lần."
 
-#~ msgid "Book"
-#~ msgstr "sách"
+msgid "Submit"
+msgstr "Gửi"
 
-#~ msgid "Author"
-#~ msgstr "tác giả"
+msgid "Add Author"
+msgstr "Thêm tác giả"
+
+msgid "Update Author info"
+msgstr "Cập nhật thông tin tác giả"
+
+msgid "Add Book"
+msgstr "Thêm sách"
+
+msgid "Update Book info"
+msgstr "Cập nhật thông tin sách"
+
+msgid "Book"
+msgstr "Sách"
+
+msgid "Author"
+msgstr "Tác giả"

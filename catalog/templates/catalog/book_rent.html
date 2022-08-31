@@ -1,6 +1,6 @@
 {% extends "base_generic.html" %}
 {% load i18n %}
-
+{% block title %}<title>{% trans "Rent Book" %}</title>{% endblock %}
 {% block content %}
   <h1>{% trans "Rent Book:" %} {{ book_instance.book.title }}</h1>
   <p><strong>{% trans "Imprint:" %}</strong> {{ book_instance.imprint }}</p>

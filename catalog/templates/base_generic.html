@@ -20,8 +20,6 @@
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'index' %}">{% trans "Home" %}</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'books' %}">{% trans "All books" %}</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'authors' %}">{% trans "All authors" %}</a>
-        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'search-book' %}">{% trans "Search book" %}</a>
-        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'search-author' %}">{% trans "Search author" %}</a>
       </div>
     </div>
     {% endblock %}
@@ -32,6 +30,13 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% trans "Search" %}</a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'search-book' %}">{% trans "Search book" %}</a>
+                <a class="dropdown-item" href="{% url 'search-author' %}">{% trans "Search author" %}</a>
+              </div>
+            </li>
             {% if user.is_staff %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% trans "Staff" %}</a>

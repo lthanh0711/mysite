@@ -1,6 +1,6 @@
 {% extends "base_generic.html" %}
 {% load i18n %}
-
+{% block title %}<title>{% trans "Book List" %}</title>{% endblock %}
 {% block content %}
   <h1>{% trans "Book List" %}</h1>
   {% if book_list %}

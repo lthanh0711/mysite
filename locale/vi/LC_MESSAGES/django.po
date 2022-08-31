@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 12:36+0700\n"
+"POT-Creation-Date: 2022-08-31 12:14+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,15 +26,19 @@ msgstr "Đăng xuất thành công!"
 msgid "Click here to login again."
 msgstr "Nhấn vào đây để đăng nhập lại."
 
-#: .\templates\registration\login.html:7
+#: .\templates\registration\login.html:11
 msgid "Your username and password didn't match. Please try again."
 msgstr "Tài khoản và mật khẩu không khớp. Xin thử lại."
 
-#: .\templates\registration\login.html:15
+#: .\templates\registration\login.html:19
 msgid "Please login to see this page."
 msgstr "Đăng nhập để xem trang này."
 
-#: .\templates\registration\login.html:36
+#: .\templates\registration\login.html:27
+msgid "Login"
+msgstr ""
+
+#: .\templates\registration\login.html:42
 msgid "Lost password?"
 msgstr "Quên mật khẩu?"
 
@@ -81,3 +85,9 @@ msgstr "Ai đó yêu cầu reset mật khẩu của bạn"
 #: .\templates\registration\password_reset_email.html:3
 msgid "Follow the link below:"
 msgstr "Truy cập đường link dưới:"
+
+#~ msgid "English"
+#~ msgstr "Tiếng Anh"
+
+#~ msgid "Vietnamese"
+#~ msgstr "Tiếng Việt"
